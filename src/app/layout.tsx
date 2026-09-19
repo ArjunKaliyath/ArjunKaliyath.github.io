@@ -1,42 +1,14 @@
 import type { Metadata } from "next";
-import { Orbitron, Rajdhani, Space_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const orbitron = Orbitron({
-  variable: "--font-display",
-  subsets: ["latin"],
-});
-
-const rajdhani = Rajdhani({
-  variable: "--font-interface",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const spaceMono = Space_Mono({
-  variable: "--font-hud",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+const inter = Inter({ variable: "--font-sans", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Arjun Kaliyath Portfolio",
-  description:
-    "Tron-inspired portfolio for Arjun Kaliyath featuring projects, systems work, and AI-focused builds.",
+  title: "Arjun Kaliyath | Software Engineer",
+  description: "Software engineer building reliable cloud, full-stack, and AI systems. University of Florida MS graduate, immediately available for new opportunities.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body
-        className={`${orbitron.variable} ${rajdhani.variable} ${spaceMono.variable}`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body className={inter.variable}>{children}</body></html>;
 }
